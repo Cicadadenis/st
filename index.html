@@ -1,0 +1,243 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
+  <title>Важная Информация</title>
+  <style>
+    html {
+      font-size: 16px;
+    }
+
+    body {
+      margin: 50px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+      color: #ffffff;
+    }
+
+    .accordion-item-header {
+      padding: 10px 15px;
+      background: #878787;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    .accordion-item-content {
+      background: #383838;
+      color: #fff;
+      display: none;
+    }
+
+    .accordion-item.show .accordion-item-content {
+      padding: 10px 15px;
+      display: block;
+    }
+
+    .accordion-item.show .accordion-item-header {
+      background: #087882;
+      color: #fff;
+    }
+  </style>
+</head>
+
+<body>
+
+<div id="accordion" class="accordion" style="max-width: 400px; margin: 0 auto;">
+  <div class="accordion-item">
+    <div class="accordion-item-header">
+     Фасовка
+    </div>
+    <div class="accordion-item-content" style="height: 200px;">
+      Какой либо текст..........
+    </div>
+  </div>
+  <div class="accordion-item">
+    <div class="accordion-item-header">
+      Виды кладов и размещение
+    </div>
+    <div class="accordion-item-content" style="height: 200px;">
+      Какой либо текст..........
+    </div>
+  </div>
+  <div class="accordion-item">
+    <div class="accordion-item-header">
+      Маскировка
+    </div>
+    <div class="accordion-item-content" style="height: 200px;">
+      Какой либо текст..........
+    </div>
+  </div>
+  <div class="accordion-item">
+    <div class="accordion-item-header">
+      Загрузка кладов
+    </div>
+    <div class="accordion-item-content" style="height: 200px;">
+      Какой либо текст..........
+    </div>
+  </div>
+  <div class="accordion-item">
+    <div class="accordion-item-header">
+      Работа в команде
+    </div>
+    <div class="accordion-item-content" style="height: 200px;">
+      Какой либо текст..........
+    </div>
+  </div>
+  <div class="accordion-item">
+    <div class="accordion-item-header">
+      Отзывы
+    </div>
+    <div class="accordion-item-content" style="height: 200px;">
+      Какой либо текст..........
+    </div>
+  </div>
+  <div class="accordion-item">
+    <div class="accordion-item-header">
+      Советы и дополнения
+    </div>
+    <div class="accordion-item-content" style="height: 200px;">
+      Какой либо текст..........
+    </div>
+  </div>
+  <div class="accordion-item">
+    <div class="accordion-item-header">
+      Зарплата
+    </div>
+    <div class="accordion-item-content" style="height: 200px;">
+      Какой либо текст..........
+    </div>
+  </div>
+  <div class="accordion-item">
+    <div class="accordion-item-header">
+      Очистка средств
+    </div>
+    <div class="accordion-item-content" style="height: 200px;">
+      Какой либо текст..........
+    </div>
+  </div>
+  <div class="accordion-item">
+    <div class="accordion-item-header">
+      Система примиальных
+    </div>
+    <div class="accordion-item-content" style="height: 200px;">
+      Какой либо текст..........
+    </div>
+  </div>
+  <div class="accordion-item">
+    <div class="accordion-item-header">
+      Штрафы
+    </div>
+    <div class="accordion-item-content" style="height: 200px;">
+      Какой либо текст..........
+    </div>
+  </div>
+  <div class="accordion-item">
+    <div class="accordion-item-header">
+      Карьерный рост
+    </div>
+    <div class="accordion-item-content" style="height: 200px;">
+      Какой либо текст..........
+    </div>
+  </div>
+  <div class="accordion-item">
+    <div class="accordion-item-header">
+      Безопастность на улице
+    </div>
+    <div class="accordion-item-content" style="height: 200px;">
+      Какой либо текст..........
+    </div>
+  </div>
+  <div class="accordion-item">
+    <div class="accordion-item-header">
+      Безопастность в сети
+    </div>
+    <div class="accordion-item-content" style="height: 200px;">
+      Какой либо текст..........
+    </div>
+  </div>
+  <div class="accordion-item">
+    <div class="accordion-item-header">
+      FAQ
+    </div>
+    <div class="accordion-item-content" style="height: 200px;">
+      Какой либо текст..........
+    </div>
+  </div>
+</div>
+
+<br>
+<br>
+
+
+
+<script>
+  var accordion = (function (element) {
+
+    var _getItem = function (elements, className) { // функция для получения элемента с указанным классом
+      var element = undefined;
+      elements.forEach(function (item) {
+        if (item.classList.contains(className)) {
+          element = item;
+        }
+      });
+      return element;
+    };
+
+    return function () {
+      var _mainElement = {}, // .accordion
+        _items = {}, // .accordion-item
+        _contents = {}; // .accordion-item-content
+
+
+      var _actionClick = function (e) {
+          if (!e.target.classList.contains('accordion-item-header')) { // прекращаем выполнение функции если кликнули не по заголовку
+            return;
+          }
+          e.preventDefault();   // Отменям стандартное действие
+          // получаем необходимые данные
+          var header = e.target,
+            item = header.parentElement,
+            itemActive = _getItem(_items, 'show');
+
+          if (itemActive === undefined) { // добавляем класс show к элементу (в зависимости от выбранного заголовка)
+            item.classList.add('show');
+          } else {
+            // удаляем класс show у ткущего элемента
+            itemActive.classList.remove('show');
+            // если следующая вкладка не равна активной
+            if (itemActive !== item) {
+              // добавляем класс show к элементу (в зависимости от выбранного заголовка)
+              item.classList.add('show');
+            }
+          }
+        },
+        _setupListeners = function () {
+          // добавим к элементу аккордиона обработчик события click
+          _mainElement.addEventListener('click', _actionClick);
+        };
+
+      return {
+        init: function (element) {
+          _mainElement = (typeof element === 'string' ? document.querySelector(element) : element);
+          _items = _mainElement.querySelectorAll('.accordion-item');
+          _setupListeners();
+        }
+      }
+
+    }
+  })();
+
+
+  var accordion1 = accordion();
+  accordion1.init('#accordion');
+
+  var accordion2 = accordion();
+  accordion2.init('#accordion2');
+</script>
+
+</body>
+
+</html>
+
